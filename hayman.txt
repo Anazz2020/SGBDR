@@ -1,0 +1,33 @@
+--Q2 Afficher les animaux femelle de la race 'Lion'. 
+select * from animaux a join Race r on a.Race = r.race_id
+where r.nom = 'Lion' and a.sexe = 'femelle'
+
+--Q3 Afficher les animaux Male nés entre le mois de janvier et mars de l'année 2019.
+select * from animaux
+where sexe = 'Male' and date_naissance between '01/01/2019' and '31/02/2019'
+
+--Q4 Afficher le nombre des animaux nés par sexe et par race.
+select count(*) AS [Nombre des animaux],Race, Sexe from Animaux
+group by Race,sexe
+
+--Q5 Lister les aliments autorisés et les aliments interdits pour la race 'Chat'
+
+select A1.*,A2.* from Race r inner join Aliments_autorises A1 on r.race_id = A1.race
+inner join Aliments_interdits A2 on r.race_id = A2.race
+where r.nom = 'Chat'
+
+--Q6 Afficher le plateau menu de lundi pour les animaux femelle
+
+SELECT * from PlatMenu P join animaux a on p.race = a.Race
+where jour = 'lundi' and  sexe = 'femelle'
+
+--Q7 Afficher le nombre de plateau par jour pour une quantité mois de 1000 gramme. 
+
+---Q8 Lister les aliments ayant des protéines indéterminés. 
+
+--Q9 Afficher les aliments interdits pour les animaux de la race lion
+
+SELECT a1.* from Aliments_interdits a1 join Race a on a1.race = a.race_id
+where a.nom = 'lion'
+
+--Q10 Donner la liste des animaux qui peuvent avalés une valeur énergétique  comprise entre 700 Kj. et 900 Kj.
